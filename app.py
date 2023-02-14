@@ -12,7 +12,7 @@ TOKEN = os.environ['TOKEN']
 @app.route('/webhook', methods=['POST'])
 def webhook():
     # get data from request
-    data = print(request.get_json(force=True))
+    data = request.get_json(force=True)
 
     print(data)
 
