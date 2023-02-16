@@ -2,6 +2,7 @@ from flask import Flask, request
 import requests
 import os
 from telegram import Bot, Update
+from telegram.ext import Dispatcher
 
 # flask app
 app = Flask(__name__)
