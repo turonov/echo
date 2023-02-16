@@ -19,17 +19,20 @@ bot = Bot(TOKEN)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     # get data from request
-    data = request.get_json(force=True)
+    if request.method =='GET':
+        return 'hi from python '
+    elif request.method == 'POST':
+        data = request.get_json(force=True)
 
-    dispatcher:Dispatcher = Dispatcher(bot, None, workerls=0)
+        dispatcher:Dispatcher = Dispatcher(bot, None, workers=0)
+        update: Update = Update,de_json(data,bot)
 
-    # update
-    update: Update = Update.de_json(data, bot)
+        dispatcher.add_handler(CommandHandler('start', callback=start))
+        dispatcher.add_handler(MessageHandler(Filters.text, echo))
 
-    dispatcher.add_handler(CommandHandler('start', callback=start))
-    dispatcher.add_handler(MessageHandler(Fiters.text, echo))
+        dispatcher.process_update(update)
 
-    dispatcher.process_update(update)
+        return 'hello'
 
     # get chat_id, text from update
     chat_id = update.message.chat.id
