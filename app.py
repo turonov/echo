@@ -16,7 +16,7 @@ app = Flask(__name__)
 TOKEN = os.environ['TOKEN']
 bot = Bot(TOKEN)
 
-@app.route('/webhook', methods=['POST'])
+@app.route('/webhook', methods=['POST'.'GET'])
 def webhook():
     # get data from request
     if request.method =='GET':
