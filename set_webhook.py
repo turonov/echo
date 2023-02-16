@@ -1,7 +1,7 @@
 import requests
 import os
 
-url = "http://turonov.pythonanywhere.com/webhook"
+url = "https://turonov.pythonanywhere.com/webhook"
 
 TOKEN = os.environ['TOKEN']
 payload = {
